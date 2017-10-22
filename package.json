@@ -24,6 +24,7 @@
   "homepage": "https://github.com/MiguelMc1/PI-Lumier#readme",
   "dependencies": {
     "botbuilder": "^3.11.0",
+    "dotenv-extended": "^2.0.1",
     "restify": "^6.2.3"
   }
 }
