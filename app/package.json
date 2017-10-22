@@ -1,0 +1,35 @@
+{
+  "name": "PI-Lumier",
+  "version": "1.0.0",
+  "description": "Assistant bot made entirely with the Microsoft Bot Framework in Node JS",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MiguelMc1/PI-Lumier.git"
+  },
+  "keywords": [
+    "bot",
+    "botframework",
+    "AI",
+    "LUIS"
+  ],
+  "author": "Miguel Mtz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MiguelMc1/PI-Lumier/issues"
+  },
+  "homepage": "https://github.com/MiguelMc1/PI-Lumier#readme",
+  "dependencies": {
+    "botbuilder": "^3.7.0",
+    "dotenv-extended": "^1.0.4",
+    "jsonpath": "^0.2.10",
+    "lodash": "^4.17.4",
+    "request": "^2.79.0",
+    "request-promise": "^4.1.1",
+    "restify": "^4.3.0",
+    "schema-inspector": "^1.6.8",
+    "xmlhttprequest": "^1.8.0"
+  }
+}
