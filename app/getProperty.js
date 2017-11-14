@@ -16,25 +16,28 @@ var GetProperty = {
             message: 'Please provide the item ID'
         },
         LocationID: {
-            message: 'Please provide the location ID'
+            message: 'Please provide the location ID',
+            optional: true
         },
         CustomerID: {
             message: 'Please provide your customer ID'
         },
         Token: {
-            message: 'Please provide your API token'
+            message: 'Please provide your API token',
+            optional: true
         },
     },
     // Action fulfillment method, recieves parameters as keyed-object (parameters argument) and a callback function to invoke with the fulfillment result.
     fulfill: function (session, parameters, callback) {
-      if(parameters.Token.startIndex){
+      /*if(parameters.Token.startIndex){
         var token = session.message.text.slice(parameters.Token.startIndex,parameters.Token.endIndex+1);
       }else{
         var token = parameters.Token.entity;
-      }
-      var URL = `http://labserver.southcentralus.cloudapp.azure.com:3080/api/inventory/v2/parts/price/${parameters.ID.entity}?companyId=T&customerId=${parameters.CustomerID.entity}&salesLocId=${parameters.LocationID.entity}&sourceLocId=${parameters.LocationID.entity}&shipToId=${parameters.CustomerID.entity}&token=${token}`;
+      }*/
+      //var URL = `http://labserver.southcentralus.cloudapp.azure.com:3080/api/inventory/v2/parts/price/${parameters.ID.entity}?companyId=T&customerId=${parameters.CustomerID.entity}&salesLocId=${parameters.LocationID.entity}&sourceLocId=${parameters.LocationID.entity}&shipToId=${parameters.CustomerID.entity}&token=${token}`;
+      var URL = "";
       var itemJSON = IT.getJSON(URL);
-      var html = IT.getHTML(itemJSON);
+      //var html = IT.getHTML(itemJSON);
       if(session.message.address.channelId == "email"){
         session.send({
           "channelData": {
@@ -44,7 +47,7 @@ var GetProperty = {
           }
         });
       }else{
-        IT.getPDF(html);
+        //IT.getPDF(html);
         var card = IT.createCard(session, itemJSON);
         var msg = new builder.Message(session).addAttachment(card);
         session.send(msg);

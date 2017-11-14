@@ -6,8 +6,9 @@ module.exports.getJSON = function (URL) {
   URL = URL.replace(/\n+/g, '');
   URL = URL.replace(/\s+/g, '');
   var x = new XMLHttpRequest();
-  var objJSON = "";
-  x.onreadystatechange = function () {
+  //var objJSON = "13.2";
+  var objJSON = "13.2";
+  /*x.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200){
       var obj = eval ("(" + this.responseText + ")");
       var toParse = JSON.stringify(obj);
@@ -16,7 +17,7 @@ module.exports.getJSON = function (URL) {
   };
   x.open('GET', URL, false);
   x.setRequestHeader("Accept", "application/json");
-  x.send();
+  x.send();*/
   return objJSON;
 };
 
@@ -73,8 +74,9 @@ module.exports.createCard = function(session, objJSON){
   return new builder.HeroCard(session)
     .title('Item Details')
     .subtitle('Description')
-    .text(`The price is: ${objJSON.UnitPrice}`)
+    //.text(`The price is: ${objJSON.UnitPrice}`)
+    .text(`The price is: ${objJSON}`)
     .buttons([
-        builder.CardAction.openUrl(session, 'C:\\Users\\mmartinez\\Documents\\bots\\epBot\\app\\Files\\sampleSum.pdf', 'Full Summary')
+        builder.CardAction.openUrl(session, 'C:\\Users\\Miguel Mtz\\Documents\\UANL\\7Sem\\PI\\PI-Lumier\\app\\Files\\sample.pdf', 'Full Summary')
     ]);
 }

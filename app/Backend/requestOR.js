@@ -7,7 +7,7 @@ module.exports.getJSON = function (URL) {
   URL = URL.replace(/\s+/g, '');
   var x = new XMLHttpRequest();
   var objJSON = "";
-  x.onreadystatechange = function () {
+  /*x.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200){
       var obj = eval ("(" + this.responseText + ")");
       var toParse = JSON.stringify(obj);
@@ -16,7 +16,7 @@ module.exports.getJSON = function (URL) {
   };
   x.open('GET', URL, false);
   x.setRequestHeader("Accept", "application/json");
-  x.send();
+  x.send();*/
   return objJSON;
 };
 
@@ -75,6 +75,6 @@ module.exports.createCard = function(session, objJSON){
     .subtitle('Description')
     .text(``)
     .buttons([
-        builder.CardAction.openUrl(session, 'C:\\Users\\mmartinez\\Documents\\bots\\epBot\\app\\Files\\sampleSum.pdf', 'Full Summary')
+        builder.CardAction.openUrl(session, 'C:\\Users\\Miguel Mtz\\Documents\\UANL\\7Sem\\PI\\PI-Lumier\\app\\Files\\sampleSum.pdf', 'Full Summary')
     ]);
 }

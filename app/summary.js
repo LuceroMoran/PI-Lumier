@@ -13,19 +13,21 @@ var SummaryAction = {
             message: 'Please provide the order ID'
         },
         Token: {
-            message: 'Please provide your API token'
+            message: 'Please provide your API token',
+            optional: true
         },
     },
     // Action fulfillment method, recieves parameters as keyed-object (parameters argument) and a callback function to invoke with the fulfillment result.
     fulfill: function (session, parameters, callback) {
-      if(parameters.Token.startIndex){
+      /*if(parameters.Token.startIndex){
         var token = session.message.text.slice(parameters.Token.startIndex,parameters.Token.endIndex+1);
       }else{
         var token = parameters.Token.entity;
-      }
-      var URL = `http://labserver.southcentralus.cloudapp.azure.com:3080/api/sales/orders/${parameters.ID.entity}?extendedProperties=Lines&token=${token}`;
+      }*/
+      //var URL = `http://labserver.southcentralus.cloudapp.azure.com:3080/api/sales/orders/${parameters.ID.entity}?extendedProperties=Lines&token=${token}`;
+      var URL = "";
       var orderJSON = OR.getJSON(URL);
-      var html = OR.getHTML(orderJSON);
+      //var html = OR.getHTML(orderJSON);
       if(session.message.address.channelId == "email"){
         session.send({
           "channelData": {
@@ -35,7 +37,7 @@ var SummaryAction = {
           }
         });
       }else{
-        OR.getPDF(html);
+        //OR.getPDF(html);
         var card = OR.createCard(session, orderJSON);
         var msg = new builder.Message(session).addAttachment(card);
         session.send(msg);
